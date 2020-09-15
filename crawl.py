@@ -9,62 +9,53 @@ import string
 url = 'https://medlatec.vn'
 
 prefix = 'hoi-dap'
-category = 'huyet-hoc-c11' #'ho-hap-c55' #'hoi-suc-cap-cuu-c57' #'hoa-sinh-c30' #'giai-phau-benh-c28' #'duoc-sy-c58' #'dinh-duong-c18'
+category = 'y-hoc-co-truyen-c56'
 
-#'di-ung-c22' #'di-truyen-c74' #'da-lieu-c26' #'da-khoa-c73' #'chuyen-muc-khac-c20' #'chan-doan-hinh-anh-c17' #'co-xuong-khop-c9'
 page_idx = 0
+fieldnames = ['id', 'link', 'title', 'author', 'date', 'question']
 
 with open(f'{category}.csv', 'w', newline='') as csvfile:
-    fieldnames = ['id','title', 'author', 'date', 'question', 'answer']
     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+    writer.writeheader()
 
 def crawl_one_page(page_idx):
     soup = BeautifulSoup(urllib.request.urlopen(f'{url}/{prefix}/{category}/{page_idx}'), 'html.parser')
-    paging = soup.find_all('div', {'class': 'faq-archive--content'})
-    for page in paging:
+    q_div_list = soup.find_all('div', {'class': 'faq-archive--content'})
+    for q_div in q_div_list:
         try:
-            answer_div = page.find('a', href=True)
+            answer_div = q_div.find('a', href=True)
             answer_link = answer_div['href']
-            title = answer_div['title']
-            answer_page = BeautifulSoup(urllib.request.urlopen(urllib.parse.quote(f'{url}/{answer_link}', safe=string.printable)), 'html.parser')
             q_id = answer_link.split('-')[-1].split('#')[0]
-  
-            detail_div = answer_page.find('div', {'class': 'faq-archive--content'})
-            info = detail_div.find('div', {'class': 'faq-archive--info clearfix'})
-            author = info.find('div', {'class': 'faq-archive--author'}).text.strip()
-            date = info.find('div', {'class': 'faq-archive--date'}).text.strip()
-            questions = detail_div.find_all('div', {'class': 'faq-archive--desc'})
-            questions = ' '.join([question.text.strip() for question in questions])
 
-            reply_div = answer_page.find('div', {'class': 'faq-reply--desc'})
-            answer_list = reply_div.find_all('p')
-            answer = []
-            for answer_p in answer_list:
-                x = answer_p.findChildren()
-                if len(x) == 0:
-                    text = answer_p.text.strip()
-                    if 'Mọi chi tiết về dịch vụ' in text:
-                        continue
-                    elif 'MEDLATEC' in text:
-                        continue
-                    elif 'các chi nhánh' in text:
-                        continue
-                    else:
-                        answer.append(text)
-                
-            answer = ' '.join(answer)
+            try:
+                title = answer_div['title']
+            except:
+                title = ''
+
+            info = q_div.find('div', {'class': 'faq-archive--info clearfix'})
+            try:
+                author = info.find('div', {'class': 'faq-archive--author'}).text.strip()
+            except:
+                author = ''
+
+            try:
+                date = info.find('div', {'class': 'faq-archive--date'}).text.strip()
+            except:
+                date = ''
+
+            q_detail_div = q_div.find_all('div', {'class': 'faq-archive--desc'})
+            question = ' '.join([' '.join(q_text.text.split()) for q_text in q_detail_div])
+
             print(f'-{q_id}-')
             #print(f'-{answer_link}-')
             #print(f'-{title}-')
             #print(f'-{author}-')
             #print(f'-{date}-')
             #print(f'-{questions}-')
-            #print(f'-{answer}')
             #print('===============================================================')
             with open(f'{category}.csv', 'a', newline='') as csvfile:
-                fieldnames = ['id','title', 'author', 'date', 'question', 'answer']
                 writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-                writer.writerow({'id': q_id, 'title': title, 'author': author, 'date': date, 'question': questions, 'answer': answer})
+                writer.writerow({'id': q_id, 'link': answer_link, 'title': title, 'author': author, 'date': date, 'question': question})
         except:
             continue
 
