@@ -9,7 +9,9 @@ import string
 url = 'https://medlatec.vn'
 
 prefix = 'hoi-dap'
-category = 'co-xuong-khop-c9'
+category = 'huyet-hoc-c11' #'ho-hap-c55' #'hoi-suc-cap-cuu-c57' #'hoa-sinh-c30' #'giai-phau-benh-c28' #'duoc-sy-c58' #'dinh-duong-c18'
+
+#'di-ung-c22' #'di-truyen-c74' #'da-lieu-c26' #'da-khoa-c73' #'chuyen-muc-khac-c20' #'chan-doan-hinh-anh-c17' #'co-xuong-khop-c9'
 page_idx = 0
 
 with open(f'{category}.csv', 'w', newline='') as csvfile:
