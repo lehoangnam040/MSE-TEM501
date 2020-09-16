@@ -1,0 +1,81 @@
+1. nội: 12 mục
+- tim mạch: 219 *
+- nội tiết - tiểu đường: 121 *
+- nội tiết sinh dục: 391 *
+- cơ xương khớp: 1419		*
+- lao: 35 *
+- hô hấp: 139 *
+- thần kinh: 379 *
+- tiêu hóa - gan mật: 252 *
+- lão khoa: 27	 *
+- nội khoa: 370	*
+- tâm thần: 69 *
+- tiết niệu: 287 *
+
+2. huyết học: 1
+- huyết học: 1446 *
+
+3. ngoại: 4
+- ngoại khoa: 111 *
+- hồi sức cấp cứu: 2 *
+- phẫu thuật thẩm mỹ: 2 *
+- thẩm mỹ tạo hình: 7 *
+
+4. phục hồi chức năng: 1
+- phục hồi chức năng: 7 *
+
+5. sản: 1
+- sản phụ khoa: 7765 *
+
+6. y học cổ truyền: 1
+- y học cổ truyền: 3 *
+
+7. nam khoa: 1
+- nam học: 475 *
+
+8. di truyền: 1 
+- di truyền: 35 *
+
+9. truyền nhiễm: 2
+- truyền nhiễm: 971 *
+- viêm gan virus: 1130 *
+
+10. nhi: 2
+- nhi khoa: 1386 *
+- sơ sinh: 89	*
+
+11. mắt: 1
+- mắt: 372 *
+
+12. dược:  1
+- dược sĩ: 7 *
+
+13. tai-mũi-họng: 1
+- tai mũi họng: 547 *
+
+14. dinh dưỡng: 1
+- dinh dưỡng: 130 *
+
+15. răng-hàm mặt: 1
+- răng hàm mặt: 243 *
+
+16. da liễu:  2
+- dị ứng: 55 *
+- da liễu: 840 *
+
+17. tiêm chủng: 1
+- tiêm chủng vacxin : 105 *
+
+18. ung thư: 1
+- ung thư: 653 *
+
+19. lâm sàng / cận lâm sàng: 6
+- chẩn đoán hình ảnh: 264 *
+- giải phẫu bệnh: 10	 *
+- hóa sinh: 84	 *
+- ký sinh trùng: 75  *
+- vi sinh: 51 *
+
+20. chuyên mục khác: 346  *
+21. đa khoa: 204 *
+22. dịch vụ: 31 *
