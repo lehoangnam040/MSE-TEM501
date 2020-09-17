@@ -6,7 +6,7 @@
 - hô hấp: 139 *
 - thần kinh: 379 *
 - tiêu hóa - gan mật: 252 *
-- lão khoa: 27	 *
+- lão khoa: 27	 *	
 - nội khoa: 370 *
 - tâm thần: 69 *
 - ung thư: 653 *
@@ -60,10 +60,10 @@ total: 2057 questions
 total: 1965 questions
 
 
-8. chuyên mục khác: 346  *
+8. chuyên mục khác: 346  * done
 - y học cổ truyền: 3 * 1 ko có giá trị, 1 -> da liễu, 1-> hô hấp
 - dược sĩ: 7 * q31376 -> truyền nhiễm, q45046-> nội, q50900, q50687 -> nhi, q45771,q32984 -> sản,q31589 ko dùng
-- dinh dưỡng: 130 *
+- dinh dưỡng: 130 * done
 
-9. đa khoa: 204 *	
-10. dịch vụ: 31 *
+9. đa khoa: 204 * done	
+10. dịch vụ: 31 * q41847 -> viêm gan,  q48457,q41848,q32685 -> noi, q34659,q55359->ngoai,	q47873, q31511,q41243,q48609,q55574,q54889 -> nhi, q42362,q33768,q34549,q48509,q49276,q49419,q55837,q33032 -> lam sang, q55419,q41175,q42362,q55419,q39503,q31213-> ko dung, q32651,q40319,q32924>huyet hoc, q45419,q48468->dalieu, q44835,q42562->san	
