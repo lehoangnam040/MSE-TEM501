@@ -2,80 +2,68 @@
 - tim mạch: 219 *
 - nội tiết - tiểu đường: 121 *
 - nội tiết sinh dục: 391 *
-- cơ xương khớp: 1419		*
 - lao: 35 *
 - hô hấp: 139 *
 - thần kinh: 379 *
 - tiêu hóa - gan mật: 252 *
 - lão khoa: 27	 *
-- nội khoa: 370	*
+- nội khoa: 370 *
 - tâm thần: 69 *
+- ung thư: 653 *
+- nam học: 475 *
+total: 3130 questions
+
+2. ngoại: 7
+- cơ xương khớp: 1419		*
 - tiết niệu: 287 *
-
-2. huyết học: 1
-- huyết học: 1446 *
-
-3. ngoại: 4
 - ngoại khoa: 111 *
 - hồi sức cấp cứu: 2 *
 - phẫu thuật thẩm mỹ: 2 *
-- thẩm mỹ tạo hình: 7 *
-
-4. phục hồi chức năng: 1
+- thẩm mỹ tạo hình: 7 *	
 - phục hồi chức năng: 7 *
+total: 1835 questions
 
-5. sản: 1
+3. sản: 1
 - sản phụ khoa: 7765 *
+total: 7765 questions
 
-6. y học cổ truyền: 1
-- y học cổ truyền: 3 *
-
-7. nam khoa: 1
-- nam học: 475 *
-
-8. di truyền: 1 
-- di truyền: 35 *
-
-9. truyền nhiễm: 2
+4. truyền nhiễm: 2
 - truyền nhiễm: 971 *
 - viêm gan virus: 1130 *
+total: 2101 questions
 
-10. nhi: 2
+5. nhi: 2
 - nhi khoa: 1386 *
 - sơ sinh: 89	*
+- tiêm chủng vacxin : 105 *
+total: 1580 questions
 
-11. mắt: 1
+
+6. Liên khoa mắt + TMH + RHM + da liễu: 5
 - mắt: 372 *
-
-12. dược:  1
-- dược sĩ: 7 *
-
-13. tai-mũi-họng: 1
 - tai mũi họng: 547 *
-
-14. dinh dưỡng: 1
-- dinh dưỡng: 130 *
-
-15. răng-hàm mặt: 1
 - răng hàm mặt: 243 *
-
-16. da liễu:  2
 - dị ứng: 55 *
 - da liễu: 840 *
+total: 2057 questions
 
-17. tiêm chủng: 1
-- tiêm chủng vacxin : 105 *
 
-18. ung thư: 1
-- ung thư: 653 *
 
-19. lâm sàng / cận lâm sàng: 6
+7. lâm sàng / cận lâm sàng: 7
 - chẩn đoán hình ảnh: 264 *
 - giải phẫu bệnh: 10	 *
 - hóa sinh: 84	 *
 - ký sinh trùng: 75  *
 - vi sinh: 51 *
+- di truyền: 35 *
+- huyết học: 1446 *
+total: 1965 questions
 
-20. chuyên mục khác: 346  *
-21. đa khoa: 204 *
-22. dịch vụ: 31 *
+
+8. chuyên mục khác: 346  *
+- y học cổ truyền: 3 * 1 ko có giá trị, 1 -> da liễu, 1-> hô hấp
+- dược sĩ: 7 * q31376 -> truyền nhiễm, q45046-> nội, q50900, q50687 -> nhi, q45771,q32984 -> sản,q31589 ko dùng
+- dinh dưỡng: 130 *
+
+9. đa khoa: 204 *	
+10. dịch vụ: 31 *
