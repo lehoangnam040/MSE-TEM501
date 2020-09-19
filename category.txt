@@ -1,0 +1,69 @@
+1. nội: 12 mục
+- tim mạch: 219 *
+- nội tiết - tiểu đường: 121 *
+- nội tiết sinh dục: 391 *
+- lao: 35 *
+- hô hấp: 139 *
+- thần kinh: 379 *
+- tiêu hóa - gan mật: 252 *
+- lão khoa: 27	 *	
+- nội khoa: 370 *
+- tâm thần: 69 *
+- ung thư: 653 *
+- nam học: 475 *
+total: 3130 questions
+
+2. ngoại: 7
+- cơ xương khớp: 1419		*
+- tiết niệu: 287 *
+- ngoại khoa: 111 *
+- hồi sức cấp cứu: 2 *
+- phẫu thuật thẩm mỹ: 2 *
+- thẩm mỹ tạo hình: 7 *	
+- phục hồi chức năng: 7 *
+total: 1835 questions
+
+3. sản: 1
+- sản phụ khoa: 7765 *
+total: 7765 questions
+
+4. truyền nhiễm: 2
+- truyền nhiễm: 971 *
+- viêm gan virus: 1130 *
+total: 2101 questions
+
+5. nhi: 2
+- nhi khoa: 1386 *
+- sơ sinh: 89	*
+- tiêm chủng vacxin : 105 *
+total: 1580 questions
+
+
+6. Liên khoa mắt + TMH + RHM + da liễu: 5
+- mắt: 372 *
+- tai mũi họng: 547 *
+- răng hàm mặt: 243 *
+- dị ứng: 55 *
+- da liễu: 840 *
+total: 2057 questions
+
+
+
+7. lâm sàng / cận lâm sàng: 7
+- chẩn đoán hình ảnh: 264 *
+- giải phẫu bệnh: 10	 *
+- hóa sinh: 84	 *
+- ký sinh trùng: 75  *
+- vi sinh: 51 *
+- di truyền: 35 *
+- huyết học: 1446 *
+total: 1965 questions
+
+
+8. chuyên mục khác: 346  * done
+- y học cổ truyền: 3 * 1 ko có giá trị, 1 -> da liễu, 1-> hô hấp
+- dược sĩ: 7 * q31376 -> truyền nhiễm, q45046-> nội, q50900, q50687 -> nhi, q45771,q32984 -> sản,q31589 ko dùng
+- dinh dưỡng: 130 * done
+
+9. đa khoa: 204 * done	
+10. dịch vụ: 31 * q41847 -> viêm gan,  q48457,q41848,q32685 -> noi, q34659,q55359->ngoai,	q47873, q31511,q41243,q48609,q55574,q54889 -> nhi, q42362,q33768,q34549,q48509,q49276,q49419,q55837,q33032 -> lam sang, q55419,q41175,q42362,q55419,q39503,q31213-> ko dung, q32651,q40319,q32924>huyet hoc, q45419,q48468->dalieu, q44835,q42562->san	
