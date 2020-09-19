@@ -80,10 +80,15 @@ if __name__ == '__main__':
 
     src_dir = 'category'
     dst_dir = 'category_preprocess'
-    stop_multiple_words = ['bác sỹ']
+    stop_multiple_words = ['bác sỹ', 'xin chào', 'xin phép', 'cho em hỏi', 'cho tôi hỏi', 'xin cám_ơn', 'xin cảm_ơn', 'giải đáp']
 
-    stop_words = ['có', 'em', 'bị', 'và', 'bác_sĩ', 'tôi', 'thì', 'bệnh_viện', 'medlatec',  'cám_ơn', 'cảm_ơn', 'nguyên_nhân', 'hỏi',
-            'e', 'ạ', 'vâng', 'bs', 'bv', 'nhưng', 'chào', 'là']
+    stop_words = [
+        'có', 'em', 'bị', 'và', 'bác_sĩ', 'tôi', 'thì', 'bệnh_viện', 'medlatec',  'cám_ơn', 'cảm_ơn', 
+        'nguyên_nhân', 'hỏi', 'không', 'cho', 'như', 'đã', 'ở', 'ko', 'nào', 'nên', 'rất', 'giúp', 'l',
+        'tại', 'này', 'lúc', 'đây', 'vẫn', 'k', 'nếu', 'vì', 'do', 'còn', 'đc', 'viện', 'sẽ', 'mỗi',  
+        'e', 'ạ', 'vâng', 'bs', 'bv', 'nhưng', 'chào', 'là', 'bac_si', 'hoặc', 'ít', 'nhiều', 'hơn', 
+        'bsy', 'bsi', 'thưa', 'của', 'vậy', 'ra', 'của', 'ơi', 'nhờ', 'về', 'câu_hỏi', 'giải_đáp'
+        ]
 
 
     filenames = []

@@ -1,0 +1,7 @@
+version: '2.3'
+
+services:
+  classification-service:
+    image: mse6-tem501-g5-classification-service
+    ports:
+      - 5000:5000
