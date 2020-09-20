@@ -2,3 +2,4 @@ Flask
 sklearn
 tensorflow
 keras
+gensim
