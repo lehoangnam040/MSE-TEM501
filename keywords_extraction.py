@@ -5,6 +5,7 @@ import _pickle as cPickle
 import os
 #import re
 import json
+import preprocess as mypreproc
 #from CocCocTokenizer import PyTokenizer
 
 #T = PyTokenizer(load_nontone_data=True)
@@ -73,11 +74,6 @@ class KeywordExtractor():
 
 
 if __name__ == "__main__":
-    # test_doc = input("Input paragraph: ")
-    #keywords = get_keyword("hai hôm_nay tự_nhiên nổi lên cuc hạch bên má trái ban_đầu thấy ngứa tưởng muỗi đốt đến ngày thứ_hai rồi sờ vào thấy cục to khoảng cm luôn luôn ngứa tư_vấn với")
-
-    #for k in keywords:
-    #    print(k, keywords[k])
     labels = {
         'lâm sàng cận lâm sàng': 0, 
         'liên khoa mắt tai mũi họng răng hàm mặt da liễu': 1, 
@@ -87,41 +83,58 @@ if __name__ == "__main__":
         'sản': 5,
         'truyền nhiễm': 6
     }
-    src_dir = '/home/ubuntu/MSE/TEM501/category_preprocess'
-    dst_dir = '/home/ubuntu/MSE/TEM501/category_preprocess_with_keywords'
+    stop_multiple_words = ['bác sỹ', 'xin chào', 'xin phép', 'cho em hỏi', 'cho tôi hỏi', 'xin cám_ơn', 'xin cảm_ơn', 'giải đáp']
+
+    stop_words = [
+        'có', 'em', 'bị', 'và', 'bác_sĩ', 'tôi', 'thì', 'bệnh_viện', 'medlatec',  'cám_ơn', 'cảm_ơn', 
+        'nguyên_nhân', 'hỏi', 'không', 'cho', 'như', 'đã', 'ở', 'ko', 'nào', 'nên', 'rất', 'giúp', 'l',
+        'tại', 'này', 'lúc', 'đây', 'vẫn', 'k', 'nếu', 'vì', 'do', 'còn', 'đc', 'viện', 'sẽ', 'mỗi',  
+        'e', 'ạ', 'vâng', 'bs', 'bv', 'nhưng', 'chào', 'là', 'bac_si', 'hoặc', 'ít', 'nhiều', 'hơn', 
+        'bsy', 'bsi', 'thưa', 'của', 'vậy', 'ra', 'của', 'ơi', 'nhờ', 'về', 'câu_hỏi', 'giải_đáp'
+    ]
+    
+    src_dir = './category'
+    dst_dir = './category_preprocess_with_keywords'
     filenames = []
     for (dirpath, dirnames, filenames1) in os.walk(src_dir):
         for fp in filenames1:
             filenames.append(f'{src_dir}/{fp}')
         break
 
-    print(filenames)
     extractor = KeywordExtractor()
+    
     for filename in filenames:
-        res = []
+        res = []    
+        label = filename.split('/')[-1].split('.')[0]
+        label_num = labels[label] 
+        
         with open(f'{filename}', 'r') as fp:
-            data = json.load(fp)
             count = 0 
-            label = filename.split('/')[-1].split('.')[0]
-            label_num = labels[label]
 
-            for question in data:
-                title = question['title']
-                q = question['question']
+            for line in fp:
                 count += 1
-                keywords, scores = extractor.get_keyword(title + ' ' + q)
-
+                try:
+                    title, q = line.split('\t')
+                except Exception as e:
+                    print(e)
+                    print(line.split('\t'))
+                    print(filename, title, q)
+                            
+                dst_title = mypreproc.preprocess_string(title, stop_multiple_words, stop_words) 
+                dst_q = mypreproc.preprocess_string(q, stop_multiple_words, stop_words)
+                keywords, scores = extractor.get_keyword(dst_title + ' ' + dst_q)
+		 
                 res.append({
                     '_id': str(label_num) + '-' + str(count),
                     'title': title,
-                    'question': question,
+                    'question': q,
                     'keywords': keywords,
                     'scores': scores
                 })
                 if (count % 10 == 0):
                     print(label + str(count))
-            
-            with open(f'{dst_dir}/{label}.json', 'w', encoding='utf8') as fp1:
+
+        with open(f'{dst_dir}/{label}.json', 'w', encoding='utf8') as fp1:
                 json_object = json.dumps(res, indent = 4, ensure_ascii=False)
                 fp1.write(json_object)
-            print('Done ' + label)
+        print('Done ' + label)
