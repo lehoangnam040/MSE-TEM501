@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>JavaScript Tag Cloud Chart</title>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+  <style>
+    html, body, #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+  </style> 
+ </head>
+  <body>
+   <div id="container"></div>
+    <script>
+        <!-- chart code will be here -->
+	anychart.onDocumentReady(function() {
+	    	// code to create a word cloud chart will be here
+	    	var data = [
+			{"x": "cháu","value": 476},
+                	{
+                    "x": "mắt",
+                    "value": 319
+                },
+                {
+                    "x": "đau",
+                    "value": 301
+                },
+                {
+                    "x": "xét_nghiệm",
+                    "value": 251
+                },
+                {
+                    "x": "tư_vấn",
+                    "value": 246
+                },
+                {
+                    "x": "bệnh",
+                    "value": 226
+                },
+                {
+                    "x": "ngứa",
+                    "value": 222
+                },
+                {
+                    "x": "khám",
+                    "value": 215
+                },
+                {
+                    "x": "thuốc",
+                    "value": 178
+                },
+                {
+                    "x": "họng",
+                    "value": 174
+                },
+                {
+                    "x": "nổi",
+                    "value": 171
+                },
+                {
+                    "x": "mụn",
+                    "value": 158
+                },
+                {
+                    "x": "da",
+                    "value": 157
+                },
+                {
+                    "x": "sưng",
+                    "value": 156
+                },
+                {
+                    "x": "mũi",
+                    "value": 129
+                },
+                {
+                    "x": "tai",
+                    "value": 124
+                },
+                {
+                    "x": "viêm",
+                    "value": 121
+                },
+                {
+                    "x": "hạch",
+                    "value": 103
+                },
+                {
+                    "x": "rát",
+                    "value": 103
+                },
+                {
+                    "x": "đỏ",
+                    "value": 97
+                }
+	    	];
+		var chart = anychart.tagCloud(data);
+		chart.angles([0])
+  		// enable a color range
+  		chart.colorRange(true);
+  		// set the color range length
+  		chart.colorRange().length('80%');
+		// display the word cloud chart
+  		chart.container("container");
+  		chart.draw();
+	});
+    </script>
+  </body>
+</html>
