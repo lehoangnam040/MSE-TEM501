@@ -2,4 +2,4 @@ Flask
 sklearn
 tensorflow
 keras
-gensim
+elasticsearch
