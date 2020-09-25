@@ -12,6 +12,8 @@ from flask import Flask, request, jsonify
 import re
 from CocCocTokenizer import PyTokenizer
 from elasticsearch import Elasticsearch
+from flask_cors import CORS, cross_origin
+
 import warnings
 def warn(*args, **kwargs):
         pass
@@ -132,7 +134,7 @@ class MyPreprocess():
         return string
 
 app = Flask(__name__)
-
+cors = CORS(app)
 vocab_text = []
 
 with open('text_vectorize.json', 'r', encoding='utf8') as fp:
@@ -228,6 +230,43 @@ def hello():
         })
     else:
         return "Need question!!!"
+
+@app.route("/keyword-cloud")
+def task3():
+    numb = request.args.get('num', 10)
+    try:
+        category = int(request.args.get('category'))
+    except:
+        category = None
+    if category:
+        match_query = {'match': {'category': category}}
+    else:
+        match_query = {'match_all': {}}
+
+    body = {
+        'query': match_query,
+        'aggs': {
+            'abc': {
+                'terms': {
+                    'field': "keywords.keyword",
+                    'size': numb,
+                    'order': {'_count': 'desc'}
+                }
+            }
+        }
+    }
+    es_data = es.search(body=body, _source=True, index='questions', 
+        filter_path=['aggregations.abc.buckets'], size=0
+    )
+    try:
+        x = es_data['aggregations']['abc']['buckets']
+        res = []
+        for x1 in x:
+            res.append({'x': x1['key'], 'value': x1['doc_count']})
+        return jsonify({'res': res})
+    except Exception:
+        return jsonify({'res': []})
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0')

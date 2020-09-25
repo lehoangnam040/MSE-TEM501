@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
  <head>
-  <title>JavaScript Tag Cloud Chart</title>
-  <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
-  <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+  <title>TEM501 Task 3</title>
+  <script src="anychart-base.min.js"></script>
+  <script src="anychart-tag-cloud.min.js"></script>
+  <script src="jquery.min.js" type="text/javascript"></script> 
   <style>
     html, body, #container {
     width: 100%;
@@ -14,99 +15,53 @@
   </style> 
  </head>
   <body>
+   <h1>TEM501 - Task 3</h1>
+   <span>Category</span>
+   <select id="pick">
+       <option value="all">All</option>
+       <option value="0">Lâm sàng cận lâm sàng</option>
+       <option value="1">Liên khoa mắt tai mũi họng răng hàm mặt da liễu</option>
+       <option value="2">Ngoại</option>
+       <option value="3">Nhi</option>
+       <option value="4">Nội</option>
+       <option value="5">Sản</option>
+       <option value="6">Truyền nhiễm</option>
+   </select>
+   <span>Số lượng từ khóa</span>
+   <input type="number" id="num_kw" min="1" value="10">
+   <button id="btn">Thống kê</button>
    <div id="container"></div>
-    <script>
-        <!-- chart code will be here -->
-	anychart.onDocumentReady(function() {
-	    	// code to create a word cloud chart will be here
-	    	var data = [
-			{"x": "cháu","value": 476},
-                	{
-                    "x": "mắt",
-                    "value": 319
-                },
-                {
-                    "x": "đau",
-                    "value": 301
-                },
-                {
-                    "x": "xét_nghiệm",
-                    "value": 251
-                },
-                {
-                    "x": "tư_vấn",
-                    "value": 246
-                },
-                {
-                    "x": "bệnh",
-                    "value": 226
-                },
-                {
-                    "x": "ngứa",
-                    "value": 222
-                },
-                {
-                    "x": "khám",
-                    "value": 215
-                },
-                {
-                    "x": "thuốc",
-                    "value": 178
-                },
-                {
-                    "x": "họng",
-                    "value": 174
-                },
-                {
-                    "x": "nổi",
-                    "value": 171
-                },
-                {
-                    "x": "mụn",
-                    "value": 158
-                },
-                {
-                    "x": "da",
-                    "value": 157
-                },
-                {
-                    "x": "sưng",
-                    "value": 156
-                },
-                {
-                    "x": "mũi",
-                    "value": 129
-                },
-                {
-                    "x": "tai",
-                    "value": 124
-                },
-                {
-                    "x": "viêm",
-                    "value": 121
-                },
-                {
-                    "x": "hạch",
-                    "value": 103
-                },
-                {
-                    "x": "rát",
-                    "value": 103
-                },
-                {
-                    "x": "đỏ",
-                    "value": 97
-                }
-	    	];
-		var chart = anychart.tagCloud(data);
-		chart.angles([0])
-  		// enable a color range
-  		chart.colorRange(true);
-  		// set the color range length
-  		chart.colorRange().length('80%');
-		// display the word cloud chart
-  		chart.container("container");
-  		chart.draw();
+   <script>
+	var category = 'all';
+	$(document).ready(function() {
+		$("#pick").change(function () {
+        		category = this.value;
+			console.log(category);
+    		});
+		//jQuery.support.cors = true;
+		$("#btn").click(function(){
+			var num = $("#num_kw").val();
+			_where = '?num='+num;
+			if (category != 'all') {
+				_where += '&category='+category;
+			}
+			var settings = {"url": "http://54.255.169.252:5000/keyword-cloud"+_where,"method": "GET","timeout": 0,};
+
+			$.ajax(settings).done(function (response) {
+				//console.log(response);
+				document.getElementById("container").innerHTML = null;
+	    			var data = response['res'];
+				var chart = anychart.tagCloud(data);
+				chart.angles([0])
+  				// enable a color range
+  				chart.colorRange(true);
+  				// set the color range length
+  				chart.colorRange().length('80%');
+				// display the word cloud chart
+  				chart.container("container");
+  				chart.draw();
+			});
+		});
 	});
     </script>
   </body>
