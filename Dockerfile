@@ -18,19 +18,12 @@ COPY --from=builder /root/.local /root/.local
 
 COPY ./requirements.txt /requirements.txt
 RUN pip install -r /requirements.txt
-#RUN pip install pyinstaller
-#RUN apt-get update -y && apt-get install -y binutils-common
+
+COPY ./tfidf_vectorizer_8mi.pk /tfidf_vectorizer_8mi.pk
 COPY text_vectorize.json /text_vectorize.json
-COPY preprocess.py /preprocess.py
+
 COPY model.h5 /model.h5
 COPY server.py /server.py
-
-#RUN pyinstaller --onefile server.py -n server
-#
-#
-#FROM frolvlad/alpine-glibc
-#COPY --from=builder /dist/server /server
-
 
 EXPOSE 5000
 CMD ["python", "/server.py"]

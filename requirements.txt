@@ -3,3 +3,4 @@ sklearn
 tensorflow
 keras
 elasticsearch
+flask-cors
